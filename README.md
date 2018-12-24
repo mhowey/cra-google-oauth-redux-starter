@@ -1,4 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About cra-google-oauth-redux-starter
+
+This is a create-react-app based "starter" that is setup with:
+ * react-router-dom
+ * CDN link to Semantic UI CSS library
+ * Redux integration
+ * A basic Google OAuth setup
+ * Google API JavaScript Library
+
+ This setup provides a "boilerplate" setup to build on top of.
+
+## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
