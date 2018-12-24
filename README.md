@@ -7,7 +7,7 @@ This is a create-react-app based "starter" that is setup with:
  * A basic Google OAuth setup
  * Google API JavaScript Library
 
- This setup provides a "boilerplate" setup to build on top of.
+ This setup provides a "boilerplate" setup to build on top of. It includes basic SIGN_IN and SIGN_OUT action creators as well as an authReducer and a combineReducers setup.
 
 ## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
