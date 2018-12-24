@@ -1,8 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { signIn, signOut } from '../actions'
 
 class GoogleAuth extends React.Component {
-  state = { isSignedIn: null }
   componentDidMount() {
+    console.log('GoogleAuth Mounted')
     // load provides a callback..
     window.gapi.load('client:auth2', () => {
       window.gapi.client
@@ -21,7 +23,7 @@ class GoogleAuth extends React.Component {
           // this.setState({ isSignedIn: this.auth.isSignedIn.get() })
 
           // by calling onAuthChange() it will set the state of isSignedIn correctly for us
-          this.onAuthChange()
+          this.onAuthChange(this.auth.isSignedIn.get())
 
           // use the isSignedIn.listen prototype method to fire our onAuthChange method
           this.auth.isSignedIn.listen(this.onAuthChange)
@@ -30,8 +32,13 @@ class GoogleAuth extends React.Component {
   }
 
   // when the auth change is fired, set the isSignedIn state to the value from the auth api
-  onAuthChange = () => {
-    this.setState({ isSignedIn: this.auth.isSignedIn.get() })
+  onAuthChange = isSignedIn => {
+    // this.setState({ isSignedIn: this.auth.isSignedIn.get() })
+    if (isSignedIn) {
+      this.props.signIn()
+    } else {
+      this.props.signOut()
+    }
   }
 
   onSignInClick = () => {
@@ -43,9 +50,9 @@ class GoogleAuth extends React.Component {
   }
 
   renderAuthButton() {
-    if (this.state.isSignedIn === null) {
-      return null
-    } else if (this.state.isSignedIn) {
+    if (this.props.isSignedIn === null) {
+      return <div>Checking...</div>
+    } else if (this.props.isSignedIn) {
       return (
         <button onClick={this.onSignOutClick} className="ui red google button">
           <i className="google icon" />
@@ -72,4 +79,11 @@ class GoogleAuth extends React.Component {
   }
 }
 
-export default GoogleAuth
+const mapStateToProps = state => {
+  return { isSignedIn: state.auth.isSignedIn }
+}
+
+export default connect(
+  mapStateToProps,
+  { signIn, signOut }
+)(GoogleAuth)
