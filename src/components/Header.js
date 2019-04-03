@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import GoogleAuth from './GoogleAuth'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import GoogleAuth from './GoogleAuth';
 
 const Header = () => {
   return (
     <>
       <div className="ui secondary pointing menu">
         <Link to="/" className="item">
-          . . ::: STREAMERIFY!
+          . . ::: GoogleAuth Redux React Starter by Matt Howey
         </Link>
         <div className="right menu">
           <Link to="/" className="item">
@@ -17,7 +17,7 @@ const Header = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

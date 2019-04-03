@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const StreamList = () => {
-  return <div>StreamList</div>
-}
+  return <div>Streams Content Area</div>;
+};
 
-export default StreamList
+export default StreamList;
