@@ -1,4 +1,6 @@
-## About cra-google-oauth-redux-starter
+## About cra-google-oauth-redux-starter by Matt Howey
+
+NOTE: this must be run on port 3000 for the oauth piece to work correctly.
 
 This is a create-react-app based "starter" that is setup with:
  * react-router-dom
